@@ -22,8 +22,7 @@ const Content = ({ parts }) => {
     );
 };
 
-const Total = ({ parts }) => {
-    const sumOfExercises = parts[0].exercises + parts[1].exercises + parts[2].exercises;
+const Total = ({ sumOfExercises }) => {
     return (
         <div>
             <p>Number of exercises {sumOfExercises}</p>
@@ -38,12 +37,13 @@ const App = () => {
         { name: "Using props to pass data", exercises: 7 },
         { name: "State of a component", exercises: 14 },
     ];
+    const sumOfExercises = parts[0].exercises + parts[1].exercises + parts[2].exercises;
 
     return (
         <div>
             <Header course={course} />
             <Content parts={parts} />
-            <Total parts={parts} />
+            <Total sumOfExercises={sumOfExercises} />
         </div>
     );
 };
